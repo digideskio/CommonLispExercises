@@ -1,0 +1,11 @@
+(defun char-in-list-recur (my-char lst)
+	(+ (cond ((null lst) 0)
+		((eql my-char (car lst)) 
+			(+ 1 (char-in-list my-char (cdr lst))))
+		(t (char-in-list my-char (cdr lst))))))
+
+(defun char-in-list-iter (my-char lst)
+	(let ((num 0))
+	(dolist (x lst num) 
+		(if (eql x my-char)
+				(incf num)))))
